@@ -21,14 +21,18 @@ public class Plateau {
 	 * @param p pion du joueur
 	 * @param c La case où poser le pion
 	 */
-	public void PoserPion(Pion p,Case c){
+	public boolean PoserPion(Pion p,Case c){
+		System.out.println(c.getContenu());
 		if(p.getCase() == null && c.isVide() && !g1.horsLimite(c)){
 			p.setCase(c);
 			c.setContenu(p.getNom());
+			System.out.println(c.getContenu());
 			plateau.put(p,c);
 			System.out.println("Le pion est posé");
+			return true;
 		}else{
 			System.out.println("Le pion n'est pas posé");
+			return false;
 		}
 	}
 	/**
@@ -36,20 +40,23 @@ public class Plateau {
 	 * @param p Le pion du joueur
 	 * @param c La case où poser le pion
 	 */
-	public void bougerPion(Pion p, Case c){
+	public boolean bougerPion(Pion p, Case c){
 		if(!g1.horsLimite(c)){
-			if((c.getLigne() >= p.getCase().getLigne()+1 || c.getLigne() <= p.getCase().getLigne() -1 || c.getColonne() <= p.getCase().getColonne()+1 || c.getColonne() <= p.getCase().getColonne()+1) && (p.getMouvement() == 1)){
+			if((c.getLigne() >= p.getCase().getLigne()+1 || c.getLigne() <= p.getCase().getLigne() -1 || c.getColonne() <= p.getCase().getColonne()+1 || c.getColonne() <= p.getCase().getColonne()+1) && (p.getMouvement() == 1) && ( c.getColonne() != p.getCase().getColonne() && c.getLigne() != p.getCase().getLigne())){
 				p.getCase().setContenu(null);
 				p.setCase(c);
 				p.bouger();
 				c.setContenu(p.getNom());
 				System.out.println("Le pion a bougé ");
 				plateau.put(p,c);
+				return true;
 			}else{
 				System.out.println("Le pion ne peut bouger que d'une case");
+				return false;
 			}
 		}else{
 			System.out.println("La case est hors limite");
+			return false;
 		}
 	}
 	/**
@@ -109,10 +116,6 @@ public class Plateau {
 		}
 	}
 	
-	public void debutPartie(){
-		Joueur j1 = new Joueur();
-		Joueur j2 = new Joueur();
-		
-	}
+
 
 }	

@@ -9,7 +9,7 @@ public class Joueur {
 	private ArrayList<Pion> p;
 	
 	
-	public Joueur(){
+	public Joueur(String nom){
 		//bat = new ArrayList<Batiment>();
 		p = new ArrayList<Pion>();
 		/**for (int i = 0; i < 25 ; i++){
@@ -22,8 +22,8 @@ public class Joueur {
 			bat.add(b3);
 			bat.add(b4);
 		}*/
-		Pion p1 = new Pion("P1",null);
-		Pion p2 = new Pion("P1",null);
+		Pion p1 = new Pion(nom+".1",null);
+		Pion p2 = new Pion(nom+".2",null);
 		
 		p.add(p1);
 		p.add(p2);

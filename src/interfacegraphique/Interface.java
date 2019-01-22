@@ -79,7 +79,7 @@ public class Interface extends JFrame implements ActionListener{
 		
 //		/container.add(t,BorderLayout.NORTH);
 		//container.add(grille);
-		this.add(menu);
+//		/this.add(menu);
 		container.add(bouton,BorderLayout.SOUTH);
 		t.add(container)	;
 		//this.setLayout(t);
