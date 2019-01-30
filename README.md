@@ -20,7 +20,7 @@ suivi :
 - condition mouvement : fait
 - condition construction : fait 
 - interface joueur : fait 
-- faire une partie
+- faire une partie : fait (manque afficher batiment,  tcherker les erreurs.
 - interface graphique
 - implementer dieu
 - implementer hero

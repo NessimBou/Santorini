@@ -27,7 +27,7 @@ public class Case {
 	}
 	
 	public boolean isVide(){
-		if(contenu == ""){
+		if(contenu == "" || contenu == null){
 			return true;
 		}else{
 			return false;

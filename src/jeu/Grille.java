@@ -22,17 +22,17 @@ public class Grille {
 	 * @return True/False
 	 */
 	public boolean horsLimite(Case c){
-		if(c.getLigne() >= this.hauteur || c.getLigne() < 0 || c.getColonne() >= this.largeur || c.getColonne() < 0){
+		if(c.getLigne() > this.hauteur || c.getLigne() < 0 || c.getColonne() > this.largeur || c.getColonne() < 0){
 			System.out.println("La case n'existe pas");
 			return true;
 		}else{
 			return false;
-		}
+		}	
 	}
 	
 	
 	public Case getCase(int i,int j){
-		if(i >= this.hauteur || i < 0 || j >= this.largeur || j < 0){
+		if(i > this.hauteur || i < 0 || j > this.largeur || j < 0){
 			System.out.println("La case n'existe pas");
 			return null;
 		}else{

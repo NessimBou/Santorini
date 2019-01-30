@@ -42,18 +42,24 @@ public class Plateau {
 	 */
 	public boolean bougerPion(Pion p, Case c){
 		if(!g1.horsLimite(c)){
-			if((c.getLigne() >= p.getCase().getLigne()+1 || c.getLigne() <= p.getCase().getLigne() -1 || c.getColonne() <= p.getCase().getColonne()+1 || c.getColonne() <= p.getCase().getColonne()+1) && (p.getMouvement() == 1) && ( c.getColonne() != p.getCase().getColonne() && c.getLigne() != p.getCase().getLigne())){
-				p.getCase().setContenu(null);
-				p.setCase(c);
-				p.bouger();
-				c.setContenu(p.getNom());
-				System.out.println("Le pion a bougé ");
-				plateau.put(p,c);
-				return true;
+			if(p.getMouvement() == 1){
+				if((c.getLigne() >= p.getCase().getLigne()+1 || c.getLigne() <= p.getCase().getLigne() -1 || c.getColonne() >= p.getCase().getColonne()+1 || c.getColonne() <= p.getCase().getColonne()-1)  && ( c.getColonne() != p.getCase().getColonne() && c.getLigne() != p.getCase().getLigne())){
+					p.getCase().setContenu("");
+					p.setCase(c);
+					p.bouger();
+					c.setContenu(p.getNom());
+					System.out.println("Le pion a bougé ");
+					plateau.put(p,c);
+					return true;
+				}else{
+					System.out.println("Le pion ne peut bouger que d'une case");
+					return false;
+				}
 			}else{
-				System.out.println("Le pion ne peut bouger que d'une case");
+				System.out.println("Le pion a deja bougé");
 				return false;
 			}
+			
 		}else{
 			System.out.println("La case est hors limite");
 			return false;
@@ -83,10 +89,11 @@ public class Plateau {
 	
 	
 	
-	public void poserBatiment(Pion p, Case c,Batiment b){
+	public boolean poserBatiment(Pion p, Case c,Batiment b){
 		if(p.getMouvement() == 0){
 			if(!c.isVide()){
 				System.out.println("la case n'est pas vide, impossible de poser un étage");
+				return false;
 			}else{
 				if(c.getContenu() == "etage" && c.getEtage() == 3 && b.getEtage() == 4){
 					c.setEtage(b.getEtage());
@@ -94,6 +101,7 @@ public class Plateau {
 					listeBat.put(c, b);
 					p.contruction();
 					System.out.println("un Dome a été posé");
+					return true;
 				}else{
 					if(c.getContenu() == "etage" || c.isVide()){
 						if(b.peutPoser(c.getEtage())){
@@ -101,18 +109,22 @@ public class Plateau {
 							listeBat.put(c, b);
 							p.contruction();
 							System.out.println("Etage est posé");
+							return true;
 						}else{
-							System.out.println("impossible de poser un etage");
+							System.out.println("impossible de poser un etage, etage trop grand par rapport à la base");
+							return false;
 						}		
 
 					}else{
 						System.out.println("impossible de poser un etage car il y a un"+ c.getContenu());
+						return false;
 					}
-
+					
 				}
 			}
 		}else{
 			System.out.println("Le pion doit bouger avant de pouvoir construire");
+			return false;
 		}
 	}
 	

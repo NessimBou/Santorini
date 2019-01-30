@@ -38,8 +38,5 @@ public class Joueur {
 	}
 	
 
-	
-	private void construction(){
-		
-	}
+
 }
