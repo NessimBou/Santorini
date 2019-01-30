@@ -2,12 +2,12 @@
 
 Regle du jeu :
 
-	Pour gagner à Santorini, il suffit simplement de réussir à placer un de ses deux personnages sur le troisième étage d'une construction. 
-	En début de partie, chaque joueur place chacun de ses deux personnages sur n'importe qu'elle case du plateau du jeu. A son tour, le joueur doit déplacer un de ses deux personnages d'une case, puis doit construire avec le personnage qu'il vient de déplacer. 
-	Le tour est alors terminé et le joueur suivant procède de la même façon. Dans Santorini, les déplacements se font dans n'importe quelle direction mais toujours d'une seule case. 
-	Par ailleurs, un joueur peut uniquement monter d'un étage mais peut descendre d'autant d'etages qu'il le souhaite.
-	La construction d'un nouveau bloc ne peut se faire que sur l'une des huit cases qui entourent le personnage qui vient d'être déplacé.
-	Finalement, si un joueur constuit un dôme bleu sur le troisieme étage d'une habitation, il ne sera alors plus possible de s'y rendre.
+	Pour gagner ï¿½ Santorini, il suffit simplement de rï¿½ussir ï¿½ placer un de ses deux personnages sur le troisiï¿½me ï¿½tage d'une construction. 
+	En dï¿½but de partie, chaque joueur place chacun de ses deux personnages sur n'importe qu'elle case du plateau du jeu. A son tour, le joueur doit dï¿½placer un de ses deux personnages d'une case, puis doit construire avec le personnage qu'il vient de dï¿½placer. 
+	Le tour est alors terminï¿½ et le joueur suivant procï¿½de de la mï¿½me faï¿½on. Dans Santorini, les dï¿½placements se font dans n'importe quelle direction mais toujours d'une seule case. 
+	Par ailleurs, un joueur peut uniquement monter d'un ï¿½tage mais peut descendre d'autant d'etages qu'il le souhaite.
+	La construction d'un nouveau bloc ne peut se faire que sur l'une des huit cases qui entourent le personnage qui vient d'ï¿½tre dï¿½placï¿½.
+	Finalement, si un joueur constuit un dï¿½me bleu sur le troisieme ï¿½tage d'une habitation, il ne sera alors plus possible de s'y rendre.
 Dieu: 
 
 Hero:
@@ -20,7 +20,7 @@ suivi :
 - condition mouvement : fait
 - condition construction : fait 
 - interface joueur : fait 
-- faire une partie : fait (manque afficher batiment,  tcherker les erreurs.
+- faire une partie : fait petit probleme d'affichage des etages quand on est sur une case ou il y a deja des etages
 - interface graphique
 - implementer dieu
 - implementer hero

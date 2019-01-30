@@ -17,9 +17,9 @@ public class Plateau {
 		this.g1 = g;
 	}
 	/**
-	 * Poser le pion au début de la game
+	 * Poser le pion au dï¿½but de la game
 	 * @param p pion du joueur
-	 * @param c La case où poser le pion
+	 * @param c La case oï¿½ poser le pion
 	 */
 	public boolean PoserPion(Pion p,Case c){
 		System.out.println(c.getContenu());
@@ -28,27 +28,28 @@ public class Plateau {
 			c.setContenu(p.getNom());
 			System.out.println(c.getContenu());
 			plateau.put(p,c);
-			System.out.println("Le pion est posé");
+			System.out.println("Le pion est posï¿½");
 			return true;
 		}else{
-			System.out.println("Le pion n'est pas posé");
+			System.out.println("Le pion n'est pas posï¿½");
 			return false;
 		}
 	}
 	/**
 	 * Bouger le pion pendant la phase de mouvement
 	 * @param p Le pion du joueur
-	 * @param c La case où poser le pion
+	 * @param c La case oï¿½ poser le pion
 	 */
 	public boolean bougerPion(Pion p, Case c){
 		if(!g1.horsLimite(c)){
 			if(p.getMouvement() == 1){
-				if((c.getLigne() >= p.getCase().getLigne()+1 || c.getLigne() <= p.getCase().getLigne() -1 || c.getColonne() >= p.getCase().getColonne()+1 || c.getColonne() <= p.getCase().getColonne()-1)  && ( c.getColonne() != p.getCase().getColonne() && c.getLigne() != p.getCase().getLigne())){
+				//if(((c.getLigne() == p.getCase().getLigne() || c.getLigne() < p.getCase().getLigne() -1 ) || c.getColonne() >= p.getCase().getColonne()+1 || c.getColonne() <= p.getCase().getColonne()-1)  && ( c.getColonne() != p.getCase().getColonne() && c.getLigne() != p.getCase().getLigne())){
+				if((c.getLigne() == p.getCase().getLigne() -1 && c.getColonne() == p.getCase().getColonne()-1) ||(c.getLigne() == p.getCase().getLigne() -1  && c.getColonne() == p.getCase().getColonne())||(c.getLigne() == p.getCase().getLigne() -1  && c.getColonne() == p.getCase().getColonne() +1 )||(c.getLigne() == p.getCase().getLigne() && c.getColonne() == p.getCase().getColonne()-1)||(c.getLigne() == p.getCase().getLigne() && c.getColonne() == p.getCase().getColonne() +1)||(c.getLigne() == p.getCase().getLigne() +1 && c.getColonne() == p.getCase().getColonne()-1)||(c.getLigne() == p.getCase().getLigne()+1 && c.getColonne() == p.getCase().getColonne())||(c.getLigne() == p.getCase().getLigne() +1 && c.getColonne() == p.getCase().getColonne() + 1)) {
 					p.getCase().setContenu("");
 					p.setCase(c);
 					p.bouger();
 					c.setContenu(p.getNom());
-					System.out.println("Le pion a bougé ");
+					System.out.println("Le pion a bougï¿½ ");
 					plateau.put(p,c);
 					return true;
 				}else{
@@ -56,7 +57,7 @@ public class Plateau {
 					return false;
 				}
 			}else{
-				System.out.println("Le pion a deja bougé");
+				System.out.println("Le pion a deja bougï¿½");
 				return false;
 			}
 			
@@ -92,7 +93,7 @@ public class Plateau {
 	public boolean poserBatiment(Pion p, Case c,Batiment b){
 		if(p.getMouvement() == 0){
 			if(!c.isVide()){
-				System.out.println("la case n'est pas vide, impossible de poser un étage");
+				System.out.println("la case n'est pas vide, impossible de poser un ï¿½tage");
 				return false;
 			}else{
 				if(c.getContenu() == "etage" && c.getEtage() == 3 && b.getEtage() == 4){
@@ -100,7 +101,7 @@ public class Plateau {
 					c.setContenu("Dome");
 					listeBat.put(c, b);
 					p.contruction();
-					System.out.println("un Dome a été posé");
+					System.out.println("un Dome a ï¿½tï¿½ posï¿½");
 					return true;
 				}else{
 					if(c.getContenu() == "etage" || c.isVide()){
@@ -108,10 +109,10 @@ public class Plateau {
 							c.setEtage(b.getEtage());
 							listeBat.put(c, b);
 							p.contruction();
-							System.out.println("Etage est posé");
+							System.out.println("Etage est posï¿½");
 							return true;
 						}else{
-							System.out.println("impossible de poser un etage, etage trop grand par rapport à la base");
+							System.out.println("impossible de poser un etage, etage trop grand par rapport ï¿½ la base");
 							return false;
 						}		
 

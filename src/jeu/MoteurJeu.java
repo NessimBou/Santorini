@@ -23,9 +23,9 @@ public class MoteurJeu {
 	}
 
 	public void afficherGrille(){
-		System.out.println("  1  2  3  4  5"); 
+		System.out.println("  0  1  2  3  4"); 
 		for(int i=0; i < 5; i++){
-			System.out.print(i + " "); 
+			System.out.print((i) + " "); 
 			for(int j=0 ; j < 5; j++){
 				if (grille[i][j] == ""){
 					System.out.print(grille[i][j] + ".. ");
@@ -48,15 +48,15 @@ public class MoteurJeu {
 		Joueur J2 = new Joueur("J2");
 		do{
 			System.out.println("Bonjour et bienvenue dans Santorini");
-			System.out.println("Veuillez choisir un chiffre entre 1 et 2");
+			/*System.out.println("Veuillez choisir un chiffre entre 1 et 2");
 			int num =  sc.nextInt();
 			int random = 1 + (int)Math.random()*1;
 
 			if(num == random){
 				System.out.println("Vous commencez");
 			}else{
-				System.out.println("c'est à l'autre joueur de commencer");
-			}
+				System.out.println("c'est ï¿½ l'autre joueur de commencer");
+			}*/
 			phasePoserPion(g1,p,J1,J2,sc);
 			while(!finDePartie()){
 				System.out.println("c'est au joueur 1 de jouer");
@@ -180,7 +180,7 @@ public class MoteurJeu {
 	
 	public Pion phaseBougerPion(Plateau p , Grille g, Joueur j,Scanner sc){
 		if(findepartie){
-			System.out.println("La partie est terminé");
+			System.out.println("La partie est terminï¿½");
 			return null;
 		}
 		System.out.println("Vous devez maintenant bouger un pion");
@@ -248,7 +248,7 @@ public class MoteurJeu {
 		}else{
 			t = new Batiment("Dome",etage);
 		}
-		System.out.println("Choississez maintenant la case où vous voulez construire l'etage");
+		System.out.println("Choississez maintenant la case oï¿½ vous voulez construire l'etage");
 		System.out.println("Choissisez une ligne : ");
 		int ligne = sc.nextInt();
 		System.out.println("Choissisez maintenant une colonne");
@@ -271,7 +271,7 @@ public class MoteurJeu {
 				t = new Batiment("Dome",etage);
 			}
 			
-			System.out.println("Choississez maintenant la case où vous voulez construire l'etage");
+			System.out.println("Choississez maintenant la case oï¿½ vous voulez construire l'etage");
 			System.out.println("Choissisez une ligne : ");
 			ligne = sc.nextInt();
 			System.out.println("Choissisez maintenant une colonne");
